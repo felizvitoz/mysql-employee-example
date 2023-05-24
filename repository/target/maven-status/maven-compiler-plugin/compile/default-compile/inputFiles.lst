@@ -1,0 +1,8 @@
+/Users/feliz/Documents/SDEBackend/mysql-employee-shceme/Mysql-Employee-Scheme/repository/src/main/java/com/repository/model/Employee.java
+/Users/feliz/Documents/SDEBackend/mysql-employee-shceme/Mysql-Employee-Scheme/repository/src/main/java/com/repository/gateway/EmployeeDataGateway.java
+/Users/feliz/Documents/SDEBackend/mysql-employee-shceme/Mysql-Employee-Scheme/repository/src/main/java/com/repository/model/Title.java
+/Users/feliz/Documents/SDEBackend/mysql-employee-shceme/Mysql-Employee-Scheme/repository/src/main/java/com/repository/model/Salary.java
+/Users/feliz/Documents/SDEBackend/mysql-employee-shceme/Mysql-Employee-Scheme/repository/src/main/java/com/repository/model/Department.java
+/Users/feliz/Documents/SDEBackend/mysql-employee-shceme/Mysql-Employee-Scheme/repository/src/main/java/com/repository/model/DepartmentManager.java
+/Users/feliz/Documents/SDEBackend/mysql-employee-shceme/Mysql-Employee-Scheme/repository/src/main/java/com/repository/repo/EmployeeRepository.java
+/Users/feliz/Documents/SDEBackend/mysql-employee-shceme/Mysql-Employee-Scheme/repository/src/main/java/com/repository/model/DepartmentEmployee.java

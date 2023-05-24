@@ -1,0 +1,10 @@
+com/repository/model/Employee.class
+com/repository/model/DepartmentManager.class
+com/repository/repo/EmployeeRepository.class
+com/repository/model/DepartmentEmployee.class
+com/repository/gateway/EmployeeDataGateway.class
+com/repository/model/Salary.class
+com/repository/model/Employee$EmployeeBuilder.class
+com/repository/model/Title.class
+com/repository/model/Employee$Gender.class
+com/repository/model/Department.class

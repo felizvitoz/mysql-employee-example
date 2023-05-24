@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "6a5c6f6a-6929-40d9-ba68-bee3870c9345",
+		"name": "Employee System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/employees",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzcHYucGZ0MSIsImNsaWVudElkIjoiMTAwMDU0IiwiY2xpZW50Q29uZmlndXJhdGlvbnMiOiJ7XCJjbGllbnREZWxpbWV0ZXJcIjpcIixcIn0iLCJpc3MiOiJjb20uYWR2b3RpY3Mud3BkbXMiLCJhc3NpZ25lZExvY2F0aW9uIjoicGZ0MSIsImFzc2lnbmVkTG9jYXRpb25UeXBlIjoiUFJEIiwiaWRlbnRpdHlJZCI6IjdmN2YxYzZjLTM2Y2YtNDU4OS04OGUzLTg0ZWUyMDI1MWIwYSIsImFzc2lnbmVkU3RvY2tpblN0b3JhZ2VUeXBlIjoiIiwic2NvcGUiOlsiVFJBIiwiUERCIiwiTU9WIiwiUFJFIiwiVlFDIiwiRVFDIiwiQ0NWIiwiTU9VIiwiUlNOIiwiUlBPIiwiUlBMIiwiUkFDIl0sImFwcEtleSI6Ijk4N2Y0YTI3NmNlZDQ1NDYxOGZkZWIzY2FjZTY4ZDRiZmM1YjhhZTIiLCJhc3NpZ25lZFN0b2NraW5TdG9yYWdlIjoiIiwiZXhwIjoxNjgyMzI4NTE1LCJmYWN0b3J5TG9jYXRpb24iOiJwZnQxIn0.P7ZlviXFaTaSNnw10uMzF134Pjy8gU66yluDswkMw7kcT-NhTWs2OyG_o2NB3Gf_ragyulBFZFZhPZrc_bGeZQ",
+						"type": "default",
+						"disabled": true
+					},
+					{
+						"key": "Origin",
+						"value": "https://10.48.65.19",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"employeeNo\": 55555557,\n  \"firstName\": \"Gobi\",\n  \"lastName\": \"Zachary2\",\n  \"gender\": \"MEN\",\n  \"birthDate\": \"2023-05-21\",\n  \"hireDate\": \"2023-05-21\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvcC5wZnQxIiwiYXNzaWduZWRMb2NhdGlvbiI6IlBUTVdQMDEiLCJjbGllbnRJZCI6IjEwMDA1NCIsImFzc2lnbmVkTG9jYXRpb25UeXBlIjoiV0hQIiwiY2xpZW50Q29uZmlndXJhdGlvbnMiOiJ7XCJjbGllbnREZWxpbWV0ZXJcIjpcIixcIn0iLCJpZGVudGl0eUlkIjoiMDNkNjFlNzktY2IzOS00MWYxLTk4MTctMjc5YjdjNmVlNmM1IiwiYXNzaWduZWRTdG9ja2luU3RvcmFnZVR5cGUiOiJXSFAiLCJzY29wZSI6WyJJTlYiLCJQQUwiLCJHUkkiLCJRQ08iLCJTT0UiLCJTT1AiLCJTT1YiLCJTTkMiLCJUUkEiXSwiaXNzIjoiY29tLmFkdm90aWNzLndwZG1zIiwiYXBwS2V5IjoiOTg3ZjRhMjc2Y2VkNDU0NjE4ZmRlYjNjYWNlNjhkNGJmYzViOGFlMiIsImFzc2lnbmVkU3RvY2tpblN0b3JhZ2UiOiJQVE1XUDAxIiwiZXhwIjoxNjgxMzc5MzY1fQ.VnxI3jFsbBT36FTlhFfcgjeWy99wL8BNH684HASBW2n08LbYdgFtNl7myClpJfp1U5t43bxReFjKL6pY6Ueuiw",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/employees/55555553",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employees/55555553",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"55555553"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/employees/5555555",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"employeeNo\": 55555553,\n  \"firstName\": \"Gobi2\",\n  \"lastName\": \"Zachary2\",\n  \"gender\": \"MEN\",\n  \"birthDate\": \"2023-05-21\",\n  \"hireDate\": \"2023-05-21\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employees/5555555",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"5555555"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
