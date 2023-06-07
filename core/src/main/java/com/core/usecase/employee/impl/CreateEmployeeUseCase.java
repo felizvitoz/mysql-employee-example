@@ -2,7 +2,6 @@ package com.core.usecase.employee.impl;
 
 import com.core.entity.Employee;
 import com.core.gateway.EmployeeGateway;
-import com.core.RetryAbleExecutor;
 import com.core.usecase.employee.CreateEmployeeInputBoundary;
 import com.core.usecase.employee.CreateEmployeeOutputBoundary;
 import com.core.usecase.employee.CreateEmployeeRequest;
@@ -25,13 +24,11 @@ public class CreateEmployeeUseCase implements CreateEmployeeInputBoundary {
 
     @Override
     public void create(CreateEmployeeRequest request, CreateEmployeeOutputBoundary presenter) {
-        RetryAbleExecutor.retryAbleExecution(() -> {
-            this.validateRequest(request);
-            Employee employee = new Employee();
-            BeanUtils.copyProperties(request, employee);
-            employeeGateway.save(employee);
-            presenter.present(employee);
-        });
+        this.validateRequest(request);
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(request, employee);
+        employeeGateway.save(employee);
+        presenter.present(employee);
     }
 
     private void validateRequest(CreateEmployeeRequest request) {

@@ -2,7 +2,6 @@ package com.core.usecase.employee.impl;
 
 import com.core.entity.Employee;
 import com.core.gateway.EmployeeGateway;
-import com.core.RetryAbleExecutor;
 import com.core.usecase.employee.CreateEmployeeOutputBoundary;
 import com.core.usecase.employee.CreateEmployeeRequest;
 import com.core.usecase.employee.UpdateEmployeeInputBoundary;
@@ -17,22 +16,20 @@ import java.util.Objects;
 @Slf4j
 @Service
 @Transactional
-public class UpdateEmployeeUseCase extends RetryAbleExecutor implements UpdateEmployeeInputBoundary {
+public class UpdateEmployeeUseCase implements UpdateEmployeeInputBoundary {
 
     @Autowired
     private EmployeeGateway employeeGateway;
 
     @Override
     public void update(CreateEmployeeRequest request, CreateEmployeeOutputBoundary presenter) {
-        RetryAbleExecutor.retryAbleExecution(() -> {
-            this.validateRequest(request);
-            Employee employeeToUpdate = Employee.builder()
-                    .employeeNo(request.getEmployeeNo()).firstName(request.getFirstName())
-                    .lastName(request.getLastName()).gender(request.getGender())
-                    .birthDate(request.getBirthDate()).hireDate(request.getHireDate()).build();
-            this.employeeGateway.save(employeeToUpdate);
-            presenter.present(employeeToUpdate);
-        });
+        this.validateRequest(request);
+        Employee employeeToUpdate = Employee.builder()
+                .employeeNo(request.getEmployeeNo()).firstName(request.getFirstName())
+                .lastName(request.getLastName()).gender(request.getGender())
+                .birthDate(request.getBirthDate()).hireDate(request.getHireDate()).build();
+        this.employeeGateway.save(employeeToUpdate);
+        presenter.present(employeeToUpdate);
     }
 
     private void validateRequest(CreateEmployeeRequest request) {

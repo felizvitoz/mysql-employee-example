@@ -42,18 +42,28 @@ public class EmployeeController {
 
     @PostMapping(consumes = "application/json")
     public EmployeeResponse saveEmployees(@RequestBody @Valid EmployeeRequest employeeRequest) {
-        return this.saveOrUpdate(employeeRequest, createEmployeeUseCase::create);
+        EmployeeResponse response = null;
+        RetryAbleExecutor.retryAbleExecution(() -> {
+            saveOrUpdate(employeeRequest, createEmployeeUseCase::create);
+        });
+        return response;
     }
 
     @PutMapping(value = {"/{employeeNo}"})
     public EmployeeResponse updateEmployee(@RequestBody @Valid EmployeeRequest employeeRequest) throws Exception {
-        return this.saveOrUpdate(employeeRequest, updateEmployeeUseCase::update);
+        EmployeeResponse response = null;
+        RetryAbleExecutor.retryAbleExecution(() -> {
+            saveOrUpdate(employeeRequest, updateEmployeeUseCase::update);
+        });
+        return response;
     }
 
     @DeleteMapping(value = {"/{employeeNo}"})
     public ResponseEntity deleteEmployee(@PathVariable final Integer employeeNo) throws Exception {
-        FilterEmployeeRequest request = FilterEmployeeRequest.builder().employeeNo(employeeNo).build();
-        this.deleteEmployeeUseCase.delete(request);
+        RetryAbleExecutor.retryAbleExecution(() -> {
+            FilterEmployeeRequest request = FilterEmployeeRequest.builder().employeeNo(employeeNo).build();
+            deleteEmployeeUseCase.delete(request);
+        });
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
