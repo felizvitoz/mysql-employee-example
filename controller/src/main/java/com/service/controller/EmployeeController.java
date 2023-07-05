@@ -1,5 +1,6 @@
 package com.service.controller;
 
+import com.core.entity.Employee;
 import com.core.usecase.employee.*;
 import com.service.model.EmployeeRequest;
 import com.service.model.EmployeeResponse;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.BiConsumer;
 
 @RestController
@@ -42,20 +44,20 @@ public class EmployeeController {
 
     @PostMapping(consumes = "application/json")
     public EmployeeResponse saveEmployees(@RequestBody @Valid EmployeeRequest employeeRequest) {
-        EmployeeResponse response = null;
+        AtomicReference<EmployeeResponse> savedEmployeeReference = new AtomicReference<>();
         RetryAbleExecutor.retryAbleExecution(() -> {
-            saveOrUpdate(employeeRequest, createEmployeeUseCase::create);
+            savedEmployeeReference.set(saveOrUpdate(employeeRequest, createEmployeeUseCase::create));
         });
-        return response;
+        return savedEmployeeReference.get();
     }
 
     @PutMapping(value = {"/{employeeNo}"})
     public EmployeeResponse updateEmployee(@RequestBody @Valid EmployeeRequest employeeRequest) throws Exception {
-        EmployeeResponse response = null;
+        AtomicReference<EmployeeResponse> savedEmployeeReference = new AtomicReference<>();
         RetryAbleExecutor.retryAbleExecution(() -> {
-            saveOrUpdate(employeeRequest, updateEmployeeUseCase::update);
+            savedEmployeeReference.set(saveOrUpdate(employeeRequest, updateEmployeeUseCase::update));
         });
-        return response;
+        return savedEmployeeReference.get();
     }
 
     @DeleteMapping(value = {"/{employeeNo}"})

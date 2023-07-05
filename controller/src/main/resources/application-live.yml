@@ -1,9 +1,17 @@
 spring:
   datasource:
-    url: jdbc:h2:file:/Users/feliz/Documents/SDEBackend/mysql-employee-shceme/Mysql-Employee-Scheme/data/memory
-    username: sa
-    password: password
-    driverClassName: org.h2.Driver
+    url: jdbc:mysql:aws://db-adv.cluster-ckxwbh1j1zs1.ap-southeast-1.rds.amazonaws.com/adv_test?serverTimezone=Asia/Jakarta&useSSL=false
+    username: root
+    password: Password123$
+    hikari:
+      connection-test-query: SELECT 1;
+      connection-timeout: 30000
+      driver-class-name: software.aws.rds.jdbc.mysql.Driver
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      maximum-pool-size: 10
+      minimum-idle: 10
+      validation-timeout: 28000
   h2:
     console.enabled: true
   jpa:
@@ -18,3 +26,5 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  flyway:
+    enabled: false
